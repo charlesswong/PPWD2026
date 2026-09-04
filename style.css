@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+  scroll-padding-top: 80px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ==================== HEADER ==================== */
+header {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  padding: 4rem 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+/* ==================== NAVIGASI ==================== */
+nav {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #2a5298;
+}
+
+/* ==================== KONTEN UTAMA ==================== */
+main {
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ==================== FOTO PROFIL ==================== */
+.profile-pic {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%; /* Membuat gambar menjadi lingkaran */
+  object-fit: cover; /* Mencegah gambar gepeng */
+  border: 4px solid #ffffff; /* Garis putih di pinggir foto */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
+}
+
+/* ==================== TENTANG SAYA ==================== */
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  color: #1e3c72;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #eef0f3;
+}
+
+/* ==================== KEAHLIAN ==================== */
+.skills-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skills-tags li {
+  background-color: #e3f2fd;
+  color: #1565c0;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* ==================== TABEL HOBI ==================== */
+.zebra-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.zebra-table th,
+.zebra-table td {
+  padding: 1rem;
+  text-align: left;
+  border: 1px solid #cbd5e1;
+}
+
+/* Checklist: header berwarna */
+.zebra-table thead th {
+  background-color: #5d5fef;
+  color: white;
+}
+
+.zebra-table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.zebra-table tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.zebra-table tbody tr:hover {
+  background-color: #e0e7ff;
+}
+
+/* ==================== FORMULIR KONTAK ==================== */
+.card h2.form-title {
+  color: #5d5fef;
+  border-bottom: 3px solid #e0e7ff;
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #333;
+  outline: none;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #5d5fef;
+  box-shadow: 0 0 0 3px rgba(93, 95, 239, 0.1);
+}
+
+::placeholder {
+  color: #9ca3af;
+}
+
+.submit-btn {
+  background: transparent;
+  border: none;
+  color: #b3b3b3;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: left;
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.3s ease;
+  align-self: flex-start;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.submit-btn:hover {
+  color: #5d5fef;
+  transform: scale(1.05);
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  background-color: #1a1a1a;
+  color: #aaa;
+  margin-top: 2rem;
+}

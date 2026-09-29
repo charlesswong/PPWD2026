@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polling Warna</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; }
+        header, footer { background: #333; color: white; padding: 15px; text-align: center; }
+        main { border: 1px solid #ccc; padding: 20px; max-width: 500px; margin: 20px auto; }
+        @media (max-width: 600px) {
+            main { margin: 10px; padding: 10px; }
+        }
+
+        .bungkus-bar { background: #ddd; width: 100%; margin-bottom: 15px; }
+        .isi-bar { height: 25px; width: 0%; color: white; text-align: right; padding-right: 5px; }
+
+        #bar_merah_H1101251012 { background: red; }
+        #bar_biru_H1101251012 { background: blue; }
+        #bar_hijau_H1101251012 { background: green; }
+        #bar_kuning_H1101251012 { background: orange; }
+        #bar_ungu_H1101251012 { background: purple; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Polling Warna</h1>
+        <p>Nama: Budi | NIM: H1101251012</p>
+    </header>
+
+    <main>
+        <section id="halaman_pilih_H1101251012">
+            <h3>Pilih Warna Kesukaanmu:</h3>
+            <form id="form_vote_H1101251012">
+                <input type="radio" name="warna_H1101251012" value="merah"> Merah 🟥<br>
+                <input type="radio" name="warna_H1101251012" value="biru"> Biru 🟦<br>
+                <input type="radio" name="warna_H1101251012" value="hijau"> Hijau 🟩<br>
+                <input type="radio" name="warna_H1101251012" value="kuning"> Kuning 🟨<br>
+                <input type="radio" name="warna_H1101251012" value="ungu"> Ungu 🟪<br><br>
+                <button type="submit">Vote Sekarang</button>
+            </form>
+        </section>
+        <section id="halaman_hasil_H1101251012" style="display: none;">
+            <h3>Hasil Sementara:</h3>
+            Merah: <div class="bungkus-bar"><div class="isi-bar" id="bar_merah_H1101251012"></div></div>
+            Biru: <div class="bungkus-bar"><div class="isi-bar" id="bar_biru_H1101251012"></div></div>
+            Hijau: <div class="bungkus-bar"><div class="isi-bar" id="bar_hijau_H1101251012"></div></div>
+            Kuning: <div class="bungkus-bar"><div class="isi-bar" id="bar_kuning_H1101251012"></div></div>
+            Ungu: <div class="bungkus-bar"><div class="isi-bar" id="bar_ungu_H1101251012"></div></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Ujian Praktikum Web</p>
+    </footer>
+
+    <script>
+        let dataVote_H1101251012 = { merah: 0, biru: 0, hijau: 0, kuning: 0, ungu: 0 };
+        let cekSession_H1101251012 = sessionStorage.getItem("suara_H1101251012");
+        if (cekSession_H1101251012) {
+            dataVote_H1101251012 = JSON.parse(cekSession_H1101251012);
+            document.getElementById("halaman_pilih_H1101251012").style.display = "none";
+            document.getElementById("halaman_hasil_H1101251012").style.display = "block";
+            updateGrafik_H1101251012();
+        }
+        document.getElementById("form_vote_H1101251012").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let pilihanUser_H1101251012 = document.querySelector('input[name="warna_H1101251012"]:checked');
+            if (!pilihanUser_H1101251012) {
+                alert("Pilih satu warna dulu!");
+                return; 
+            }
+            let warnaTerpilih_H1101251012 = pilihanUser_H1101251012.value;
+            dataVote_H1101251012[warnaTerpilih_H1101251012] += 1;
+            sessionStorage.setItem("suara_H1101251012", JSON.stringify(dataVote_H1101251012));
+            document.getElementById("halaman_pilih_H1101251012").style.display = "none";
+            document.getElementById("halaman_hasil_H1101251012").style.display = "block";
+            updateGrafik_H1101251012();
+        });
+        function updateGrafik_H1101251012() {
+            let total_H1101251012 = dataVote_H1101251012.merah + dataVote_H1101251012.biru + dataVote_H1101251012.hijau + dataVote_H1101251012.kuning + dataVote_H1101251012.ungu;
+            for (let w in dataVote_H1101251012) {
+                let jumlahSuara_H1101251012 = dataVote_H1101251012[w];
+                let persen_H1101251012 = (total_H1101251012 === 0) ? 0 : (jumlahSuara_H1101251012 / total_H1101251012) * 100;
+                let elemenBar_H1101251012 = document.getElementById("bar_" + w + "_H1101251012");
+                elemenBar_H1101251012.style.width = persen_H1101251012 + "%";
+                if(jumlahSuara_H1101251012 > 0) {
+                    elemenBar_H1101251012.innerText = jumlahSuara_H1101251012; 
+                }
+            }
+        }
+    </script>
+</body>
+</html>
